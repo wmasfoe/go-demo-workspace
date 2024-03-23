@@ -24,4 +24,5 @@ func main() {
 	multi.RunDemo()
 
 	channel.RunDemo()
+	channel.RunDemo2()
 }
