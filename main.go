@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"go-demo/assert"
+	_ "go-demo/home"
+	"go-demo/multi"
 	"go-demo/polymorphic"
 )
 
@@ -13,4 +15,10 @@ func main() {
 	polymorphic.RunDemo()
 	assert.RunDemo()
 
+	fmt.Println("@@@@@@@@@@@@@@@")
+
+	//home.RunSystem()
+	fmt.Println("\n\n")
+
+	multi.RunDemo()
 }
