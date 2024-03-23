@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"go-demo/assert"
+	"go-demo/channel"
 	_ "go-demo/home"
 	"go-demo/multi"
 	"go-demo/polymorphic"
@@ -21,4 +22,6 @@ func main() {
 	fmt.Println("\n\n")
 
 	multi.RunDemo()
+
+	channel.RunDemo()
 }
