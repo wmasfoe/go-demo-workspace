@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"go-demo/assert"
 	"go-demo/channel"
+	"go-demo/chat"
 	_ "go-demo/home"
 	"go-demo/multi"
 	"go-demo/polymorphic"
@@ -25,4 +26,8 @@ func main() {
 
 	channel.RunDemo()
 	channel.RunDemo2()
+
+	chat.RunDemo()
+
+	chat.RunClientDemo()
 }
