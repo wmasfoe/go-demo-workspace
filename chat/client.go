@@ -5,9 +5,10 @@ import (
 	"fmt"
 	"net"
 	"os"
+	"strings"
 )
 
-const CLIENT_EXIT_FLAG = ":exit\n"
+const CLIENT_EXIT_FLAG = ":exit"
 
 func RunClientDemo() {
 	conn, err := net.Dial("tcp", "127.0.0.1:8080")
@@ -37,7 +38,8 @@ func RunClientDemo() {
 		}
 
 		fmt.Printf("客户端写入了 %v 字节的数据, 内容是: %v", connByteCount, readString)
-		if readString == CLIENT_EXIT_FLAG {
+
+		if strings.Trim(readString, " \r\n") == CLIENT_EXIT_FLAG {
 			return
 		}
 	}

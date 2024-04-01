@@ -3,10 +3,11 @@ package chat
 import (
 	"fmt"
 	"net"
+	"strings"
 )
 
-// EXIT_FLAG 退出指令，注意客户端发送的时候，需要按回车 最后需要加上 \n
-const EXIT_FLAG = ":exit\n"
+// EXIT_FLAG 退出指令
+const EXIT_FLAG = ":exit"
 
 func progress(conn net.Conn) {
 	defer func() {
@@ -28,7 +29,7 @@ func progress(conn net.Conn) {
 		msg := string(msgBuf[:readByteCount])
 
 		//收到退出指令
-		if msg == EXIT_FLAG {
+		if strings.Trim(msg, " \r\n") == EXIT_FLAG {
 			return
 		}
 
