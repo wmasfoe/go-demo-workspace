@@ -8,8 +8,6 @@ import (
 	"strings"
 )
 
-const EXIT_FLAG = ":exit"
-
 // 开一个 goroutine 用来读取服务端的消息
 func readFromServer(conn net.Conn) {
 	for {
