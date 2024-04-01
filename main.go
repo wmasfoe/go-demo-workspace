@@ -28,6 +28,4 @@ func main() {
 	channel.RunDemo2()
 
 	chat.RunDemo()
-
-	chat.RunClientDemo()
 }
