@@ -4,10 +4,11 @@ import (
 	"fmt"
 	"go-demo/assert"
 	"go-demo/channel"
-	"go-demo/chat"
+	_ "go-demo/chat"
 	_ "go-demo/home"
 	"go-demo/multi"
 	"go-demo/polymorphic"
+	sparseArray "go-demo/sparse-array"
 )
 
 func main() {
@@ -27,5 +28,8 @@ func main() {
 	channel.RunDemo()
 	channel.RunDemo2()
 
-	chat.RunDemo()
+	//chat.RunDemo()
+
+	sparseArray.RunDemo()
+
 }
