@@ -5,10 +5,10 @@ import (
 	"go-demo/assert"
 	"go-demo/channel"
 	_ "go-demo/chat"
+	"go-demo/data-structure/sparse-array"
 	_ "go-demo/home"
 	"go-demo/multi"
 	"go-demo/polymorphic"
-	sparseArray "go-demo/sparse-array"
 )
 
 func main() {

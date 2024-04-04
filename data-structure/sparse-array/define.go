@@ -25,4 +25,7 @@ type ISparseArray interface {
 	Add(row int, col int, val any)
 	Remove(row int, col int) error
 	Reset()
+	GetValue() [][]any
+	GetRowSize() int
+	GetColSize() int
 }

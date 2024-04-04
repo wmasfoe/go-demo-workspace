@@ -10,7 +10,7 @@ import (
 	"strconv"
 )
 
-// 稀疏数组保存到文件中
+// ArrToFile 稀疏数组保存到文件中
 func (arr *SparseArray) ArrToFile() error {
 	// 打开文件， os.O_CREATE|os.O_WRONLY 表示没有文件创建文件，并且以写入的方式打开，0666 表示所有用户可读写(rwx)
 	file, err := os.OpenFile(arr.filePath, os.O_CREATE|os.O_WRONLY, 0666)
@@ -38,7 +38,7 @@ func (arr *SparseArray) ArrToFile() error {
 	return nil
 }
 
-// 从指定文件读取
+// FileToArr 从指定文件读取
 func (arr *SparseArray) FileToArr() error {
 	file, err := os.OpenFile(arr.filePath, os.O_RDONLY, 0666)
 	if err != nil {
@@ -125,30 +125,23 @@ func (arr *SparseArray) ShowValue() {
 	fmt.Println(arr.value)
 }
 
-func RunDemo() {
+func (arr *SparseArray) GetRowSize() int {
+	return arr.rowSize
+}
+func (arr *SparseArray) GetColSize() int {
+	return arr.colSize
+}
+func (arr *SparseArray) GetValue() [][]any {
+	row, col := arr.rowSize, arr.colSize
 
-	// 10x10 的稀疏数组，默认值是 0，存储位置在 assets/sparse-array.txt
-	sa := SparseArray{
-		rowSize:    10,
-		colSize:    10,
-		defaultVal: 0,
-		filePath:   "./sparse-array/_log/data.txt",
+	resArr := make([][]any, row)
+	for i := range resArr {
+		resArr[i] = make([]any, col)
 	}
-	sa.Add(1, 1, "hahaha")
-	sa.Add(2, 1, "heiheihei")
-	sa.Add(3, 2, "gagaga")
-	sa.ShowValue()
-	err := sa.Remove(2, 1)
-	if err != nil {
-		fmt.Println(err.Error())
+
+	for _, nodeValue := range arr.value {
+		resArr[nodeValue.row][nodeValue.col] = nodeValue.val
 	}
-	sa.ShowValue()
 
-	sa.ArrToFile()
-
-	fmt.Println("重置..")
-	sa.Reset()
-	sa.ShowValue()
-
-	sa.FileToArr()
+	return resArr
 }
