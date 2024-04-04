@@ -16,12 +16,13 @@ type SparseArray struct {
 
 // SparseArrayFileOperate 定义了 稀疏数组关于文件的操作
 type SparseArrayFileOperate interface {
-	arrToFile() (err error)
-	fileToArr() (err error)
+	ArrToFile() (err error)
+	FileToArr() (err error)
 }
 
 // ISparseArray 定义了 稀疏数组对本身的操作
 type ISparseArray interface {
-	add(row int, col int, val any)
-	remove(row int, col int) error
+	Add(row int, col int, val any)
+	Remove(row int, col int) error
+	Reset()
 }
